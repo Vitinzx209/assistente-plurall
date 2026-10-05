@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Plurall — Assistente Local",
+  "version": "1.22.16",
+  "description": "Assistente local com conta, ativação de licença e painel branco e roxo.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+ad0a9Bcw5TZIXTOgBYB9FHf+iBbnAG8jcaS4oRzKIRj0lF6x/68/neYKdcbby+2t/CO0oVo6LZzEKW298cwSMRZQUU6r3RzVN3N2aVALFzE21A/1dFybEbq9/IADVMXOSSOEhJEF4JtjCRkL287q+MweOXEXza5DChiz6Gc0N5J4G04A2jAU9yDgL+CUuCArQPAqIVEqs1AIPM7+iKhZfcwkBKTVS7lC6T6uxfAvBjsSf/ei5EfD2vBN5AJ7eWKelWc5kPp/MSVeNMGza+JjlWY1upXZMB6yD8kVDhuRo3jVLZ1kFPflGt8iOIsAxzZJ9uCp7L79I+wGDdSMAlbFwIDAQAB",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://localhost:11434/*",
+    "http://127.0.0.1:11434/*",
+    "http://127.0.0.1:8765/*",
+    "http://penguin.linux.test:11434/*",
+    "https://*.plurall.net/*",
+    "https://plurall-licencas.slaybvitor.chatgpt.site/*",
+    "https://*.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://atividades.plurall.net/*"],
+      "js": ["license-gate.js", "flow-core.js", "content.js", "queue.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
